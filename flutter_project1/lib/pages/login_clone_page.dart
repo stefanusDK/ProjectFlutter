@@ -36,6 +36,7 @@ class LoginClonePage extends StatelessWidget {
               child: CustomTextField(
                 txtcontroller: txtUsername,
                 hintText: 'No. Handphone/Email/Username',
+                
               ),
             ),
             Container(
@@ -44,12 +45,18 @@ class LoginClonePage extends StatelessWidget {
                 txtcontroller: txtPassword,
                 hintText: 'Password',
                 obscureText: true,
+               
               ),
             ),
             Container(
               margin: const EdgeInsets.all(10),
               width: double.infinity,
-              child: CustomButton(text: 'Log In'),
+              child: CustomButton(
+              text: 'Log In',
+              onPressed: () {
+              },
+            ),
+              // child: CustomButton(text: 'Log In'),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

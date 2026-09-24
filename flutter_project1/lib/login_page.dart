@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'components/custom_textfield.dart';
+import 'package:flutter/services.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -29,11 +31,11 @@ class _LoginPageState extends State<LoginPage> {
           ),
           Container(
             margin: const EdgeInsets.all(10),
-            child: CustomTextField(txtcontroller: txtUsername, hintText: "Input username"),
+            child: CustomTextField(txtcontroller: txtUsername, hintText: "Input username", inputFormatters: [FilteringTextInputFormatter.digitsOnly],),
           ),
           Container(
             margin: const EdgeInsets.all(10),
-            child: CustomTextField(txtcontroller: txtPassword, hintText: "Input password", obscureText: true),
+            child: CustomTextField(txtcontroller: txtPassword, hintText: "Input password", obscureText: true, inputFormatters: [FilteringTextInputFormatter.digitsOnly],),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
