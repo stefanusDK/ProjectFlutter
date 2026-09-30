@@ -5,6 +5,8 @@ import 'login_page.dart';
 import 'pages/login_clone_page.dart';
 import 'package:get/get.dart';
 import 'pages/kalkulator_page_1.dart';
+
+import 'routers.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -41,7 +43,11 @@ class MyApp extends StatelessWidget {
 // }
  @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(home: KalkulatorPage1());
+    return GetMaterialApp(
+      title: "My Lewwar",
+      initialRoute: Routers.registrationPage,
+      getPages: Routers.pages,
+      );
   }
 }
 
