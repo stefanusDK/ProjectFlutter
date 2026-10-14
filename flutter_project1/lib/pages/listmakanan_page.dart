@@ -43,7 +43,7 @@ class ListmakananPage extends StatelessWidget {
                       ),
                       title: Text(makanan.namaMakanan),
                       subtitle: Text("Harga: ${makanan.hargaMakanan}"),
-                      trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+                      
                     ),
                   ),
                 ),
