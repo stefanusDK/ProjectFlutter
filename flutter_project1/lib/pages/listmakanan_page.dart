@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import '../controler/listmakanan_controller.dart';
 import 'detail_list_makanan.dart';
 
-
 class ListmakananPage extends StatelessWidget {
   ListmakananPage({super.key});
   final ListmakananController controller = Get.put(ListmakananController());
@@ -14,30 +13,43 @@ class ListmakananPage extends StatelessWidget {
       appBar: AppBar(title: const Text("List Makanan")),
       body: Container(
         margin: const EdgeInsets.all(10),
-        child: ListView.builder(
-          itemCount: controller.listMakanan.length,
-          itemBuilder: (context, index) {
-            final makanan = controller.listMakanan[index];
-            return InkWell(
-              onTap: () {
-               Get.to(() =>  DetailListMakanan(), arguments: makanan);
-              },
-              child: Card(
-                elevation: 2,
-                child: ListTile(
-                  leading: Image.network(
-                    makanan.gambarMakanan,
-                    width: 50,
-                    height: 50,
-                    fit: BoxFit.cover,
-                  ),
-                  title: Text(makanan.namaMakanan),
-                  subtitle: Text("Harga: ${makanan.hargaMakanan}"),
-                  trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+        child: Obx(
+          () => ListView.builder(
+            itemCount: controller.listMakanan.length,
+            itemBuilder: (context, index) {
+              final makanan = controller.listMakanan[index];
+              return Dismissible(
+                key: ValueKey(makanan.namaMakanan),
+                direction: DismissDirection.startToEnd,
+                background: Container(
+                  color: Colors.red,
+                  alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.only(left: 20),
+                  child: const Icon(Icons.delete, color: Colors.white),
                 ),
-              ),
-            );
-          },
+                child: InkWell(
+                  onTap: () {
+                    Get.to(() => DetailListMakanan(), arguments: makanan);
+                  },
+                  child: Card(
+                    elevation: 2,
+                    child: ListTile(
+                      leading: Image.network(
+                        makanan.gambarMakanan,
+                        width: 50,
+                        height: 50,
+                        fit: BoxFit.cover,
+                        
+                      ),
+                      title: Text(makanan.namaMakanan),
+                      subtitle: Text("Harga: ${makanan.hargaMakanan}"),
+                      trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
         ),
       ),
     );

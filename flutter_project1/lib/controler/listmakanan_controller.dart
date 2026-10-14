@@ -2,11 +2,9 @@ import 'package:get/get.dart';
 import '../models/makanan_model.dart';
 
 class ListmakananController extends GetxController {
-  // Buat list untuk menampung data makanan
-  List<MakananModel> listMakanan = [
+  RxList<MakananModel> listMakanan = [
     MakananModel(
-      gambarMakanan:
-          "https://awsimages.detik.net.id/community/media/visual/2019/11/29/c1da4697-6737-4e6f-9560-31363968faea.jpeg?w=600&q=90",
+      gambarMakanan: "https://awsimages.detik.net.id/community/media/visual/2019/11/29/c1da4697-6737-4e6f-9560-31363968faea.jpeg?w=600&q=90",
       namaMakanan: "Soto Ayam",
       hargaMakanan: "Rp 15.000",
       deskripsiMakanan: "Soto ayam dengan kuah sedap",
@@ -37,5 +35,5 @@ class ListmakananController extends GetxController {
       reviewMakanan: "Enak",
       ratingMakanan: 4.0,
     ),
-  ];
+  ].obs;
 }

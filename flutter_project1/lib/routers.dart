@@ -18,7 +18,7 @@ class Routers {
     GetPage(name: listMakananPage, page: () => ListmakananPage(),
     ),
 
-    GetPage(name: detailListMakananPage, page: () => const DetailListMakanan(),
+    GetPage(name: detailListMakananPage, page: () =>  DetailListMakanan(),
     ),
 
   ];
