@@ -28,9 +28,19 @@ class ListmakananPage extends StatelessWidget {
                   child: const Icon(Icons.delete, color: Colors.white),
                 ),
                 child: InkWell(
-                  onTap: () {
-                    Get.to(() => DetailListMakanan(), arguments: makanan);
-                  },
+                 onTap: () {
+                  Get.to(
+                    () => const DetailListMakanan(),
+                    arguments: {
+                      'namaMakanan': makanan.namaMakanan,
+                      'hargaMakanan': makanan.hargaMakanan,
+                      'gambarMakanan': makanan.gambarMakanan,
+                      'deskripsiMakanan': makanan.deskripsiMakanan,
+                      'ratingMakanan': makanan.ratingMakanan,
+                      'reviewMakanan': makanan.reviewMakanan,
+                    },
+                  );
+                },
                   child: Card(
                     elevation: 2,
                     child: ListTile(

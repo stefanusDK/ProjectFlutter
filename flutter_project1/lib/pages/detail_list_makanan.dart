@@ -9,99 +9,80 @@ class DetailListMakanan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(DetailmakananController());
-    final makanan = controller.makanan;
 
     return Scaffold(
       appBar: AppBar(
         title: CustomTextfieldTeks(
-          text: makanan.namaMakanan,
+          text: controller.namaMakanan,
           fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Gambar
           Image.network(
-            makanan.gambarMakanan,
+            controller.gambarMakanan,
             width: double.infinity,
             height: 250,
             fit: BoxFit.cover,
           ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: CustomTextfieldTeks(
-                        text: makanan.namaMakanan,
-                        fontSize: 22,
+          Card(
+            elevation: 5,
+            margin: const EdgeInsets.all(10),
+            child: ListTile(
+              title: Column(
+                children: [
+                  CustomTextfieldTeks(
+                    text: controller.namaMakanan,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  const SizedBox(height: 5),
+                  CustomTextfieldTeks(
+                    text: controller.hargaMakanan,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green,
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.star, color: Colors.amber, size: 20),
+                      const SizedBox(width: 5),
+                      CustomTextfieldTeks(
+                        text: "${controller.ratingMakanan}",
+                        fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
-                    ),
-                    CustomTextfieldTeks(
-                      text: makanan.hargaMakanan,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 10),
-
-                Row(
-                  children: [
-                    const Icon(Icons.star, color: Colors.amber, size: 20),
-                    const SizedBox(width: 5),
-                    CustomTextfieldTeks(
-                      text: "${makanan.ratingMakanan}",
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-
-                const CustomTextfieldTeks(
-                  text: "Deskripsi",
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-                const SizedBox(height: 8),
-                CustomTextfieldTeks(
-                  text: makanan.deskripsiMakanan,
-                  fontSize: 15,
-                ),
-                const SizedBox(height: 20),
-
-                const CustomTextfieldTeks(
-                  text: "Review",
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-                const SizedBox(height: 10),
-                Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Row(
-                      children: [
-                        const Icon(Icons.rate_review_outlined),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: CustomTextfieldTeks(
-                            text: makanan.reviewMakanan,
-                          ),
-                        ),
-                      ],
-                    ),
+                    ],
                   ),
-                ),
-              ],
+                ],
+              ),
+              subtitle: Column(
+                children: [
+                  const SizedBox(height: 10),
+                  CustomTextfieldTeks(
+                    text: controller.deskripsiMakanan,
+                    fontSize: 15,
+                  ),
+                  const SizedBox(height: 10),
+                ],
+              ),
+            ),
+          ),
+          Card(
+            margin: const EdgeInsets.all(10),
+            child: ListTile(
+              leading: const Icon(Icons.rate_review_outlined),
+              title: const CustomTextfieldTeks(
+                text: "Review",
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+              subtitle: CustomTextfieldTeks(
+                text: controller.reviewMakanan,
+              ),
             ),
           ),
         ],

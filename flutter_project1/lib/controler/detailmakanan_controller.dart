@@ -1,12 +1,22 @@
 import 'package:get/get.dart';
-import '../models/makanan_model.dart';
 
 class DetailmakananController extends GetxController {
-  late final MakananModel makanan;
+  late String namaMakanan;
+  late String hargaMakanan;
+  late String gambarMakanan;
+  late String deskripsiMakanan;
+  late double ratingMakanan;
+  late String reviewMakanan;
 
   @override
   void onInit() {
     super.onInit();
-    makanan = Get.arguments as MakananModel;
+    final arguments = Get.arguments;
+    namaMakanan = arguments['namaMakanan'];
+    hargaMakanan = arguments['hargaMakanan'];
+    gambarMakanan = arguments['gambarMakanan'];
+    deskripsiMakanan = arguments['deskripsiMakanan'];
+    ratingMakanan = arguments['ratingMakanan'];
+    reviewMakanan = arguments['reviewMakanan'];
   }
 }
