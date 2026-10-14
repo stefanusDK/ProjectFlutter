@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controler/listmakanan_controller.dart';
 import 'detail_list_makanan.dart';
+import '../routers.dart';
 
 class ListmakananPage extends StatelessWidget {
   ListmakananPage({super.key});
@@ -29,8 +30,8 @@ class ListmakananPage extends StatelessWidget {
                 ),
                 child: InkWell(
                  onTap: () {
-                  Get.to(
-                    () => const DetailListMakanan(),
+                  Get.toNamed(
+                    Routers.detailListMakananPage,
                     arguments: {
                       'namaMakanan': makanan.namaMakanan,
                       'hargaMakanan': makanan.hargaMakanan,
