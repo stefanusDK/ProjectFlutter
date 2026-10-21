@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'pages/kalkulator_page_1.dart';
 import 'pages/registration_page.dart';
 import 'pages/listmakanan_page.dart';
+import 'pages/main_menu_page.dart';
 
 import 'routers.dart';
 void main() {
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "My Lewwar",
-      initialRoute: Routers.listMakananPage,
+      initialRoute: Routers.mainMenuPage,
       getPages: Routers.pages,
       );
   }
